@@ -22,7 +22,7 @@ const index = () => {
               Hi My Name Is,
             </h1>
             <br />
-            <h1 className='text-5xl font-extrabold  text-orange-600'>
+            <h1 className='name text-5xl font-extrabold  text-orange-600'>
               Om Prasad Poudel,
             </h1>
             <br />
@@ -32,22 +32,38 @@ const index = () => {
             </h1>
           </div>
           <div className='icons flex space-x-10 sm:space-x-14 border-2 border-orange-900 p-4 rounded-md my-20'>
-            <a href='https://'>
+            <a
+              rel='noreferrer'
+              target={"_blank"}
+              href='https://www.facebook.com/om.p.poudel.9'
+            >
               <BsFacebook className='hover:text-orange-300 active:text-stone-500 text-xl ' />
             </a>
-            <a href=''>
+            <a
+              rel='noreferrer'
+              target={"_blank"}
+              href='https://twitter.com/don_oppo'
+            >
               <BsTwitter className='hover:text-orange-300 active:text-stone-500 text-xl' />
             </a>
-            <a href=''>
+            <a
+              rel='noreferrer'
+              target={"_blank"}
+              href='https://www.linkedin.com/in/omprasad-poudel-91050b208/'
+            >
               <BsLinkedin className='hover:text-orange-300 active:text-stone-500 text-xl' />
             </a>
-            <a href=''>
+            <a rel='noreferrer' target={"_blank"} href=''>
               <BsDiscord className='hover:text-orange-300 active:text-stone-500 text-xl' />
             </a>
-            <a href=''>
+            <a rel='noreferrer' target={"_blank"} href='https://t.me/oppodon'>
               <BsTelegram className='hover:text-orange-300 active:text-stone-500 text-xl' />
             </a>
-            <a href=''>
+            <a
+              rel='noreferrer'
+              target={"_blank"}
+              href='https://www.instagram.com/omprasadpoudel01/'
+            >
               <BsInstagram className='hover:text-orange-300 active:text-stone-500 text-xl' />
             </a>
           </div>
