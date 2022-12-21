@@ -10,7 +10,7 @@ import {
 } from "react-icons/bs";
 const index = () => {
   return (
-    <div className='bg-gradient-to-r h-[100vh] overflow-x-hidden md:h-full from-black to-stone-900'>
+    <div className='bg-gradient-to-r  overflow-x-hidden md:h-full from-black to-stone-900'>
       <Head>
         <title>Home</title>
       </Head>
