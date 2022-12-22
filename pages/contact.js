@@ -5,7 +5,7 @@ const contact = () => {
   return (
     <div className='bg-gradient-to-r  overflow-x-hidden h-[100vh] from-black to-stone-900   text-white md:flex'>
       <Head>
-        <title>Contact Us:</title>
+        <title>Contact Us</title>
       </Head>
       <div className='contact  md:w-[50%] m-10 space-y-10 md:border-r-2'>
         <h1 className='text-2xl font-serif font-bold'>Contact Us:</h1>
@@ -18,9 +18,28 @@ const contact = () => {
           Contact Information:
         </h1>
         <ol className='list-disc m-2 md:m-5 text-sm md:text-base space-y-4'>
-          <li>Phone:{"   "} 123456789</li>
-          <li>Email: {"   "}admin@omprasadpoudel.com.np</li>
-          <li>Address:{"   "} Pokhara</li>
+          <li>
+            {" "}
+            <span className='text-red-500 font-semibold'>
+              Phone:{"   "}
+            </span>{" "}
+            <span>123456789</span>{" "}
+          </li>
+          <li>
+            {" "}
+            <span className='text-red-500 font-semibold'>
+              Email: {"   "}
+            </span>{" "}
+            admin@omprasadpoudel.com.np
+          </li>
+          <li>
+            {" "}
+            <span className='text-red-500 font-semibold'>
+              {" "}
+              Address:{"   "}
+            </span>{" "}
+            Pokhara
+          </li>
         </ol>
       </div>
       <div className='contactform md:mt-10 m-10  md:mx-0 md:w-[50%]   space-y-10 '>
@@ -55,7 +74,7 @@ const contact = () => {
             cols='55'
             rows='6'
           ></textarea>
-          <button className='bg-orange-600 mx-auto text-white hover:bg-orange-500 active:bg-orange-700 rounded-lg h-10 w-[50%] md:w-[22%] md:px-10'>
+          <button className='bg-red-600 mx-auto text-white hover:bg-red-500 active:bg-red-700 rounded-lg h-10 w-[50%] md:w-[22%] md:px-10'>
             Submit
           </button>
         </div>

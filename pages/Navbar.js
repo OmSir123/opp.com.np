@@ -112,10 +112,33 @@ const Navbar = () => {
           </li>
         </ul>
         <div className='buttons flex space-x-5'>
-          <button className='hover:text-orange-600 h-10 '>Login</button>
-          <button className='bg-orange-600 text-black hover:bg-orange-500 active:bg-orange-700 rounded-lg h-10 px-3 '>
-            Register
-          </button>
+          <Link
+            onClick={() => {
+              setAbout(false);
+              setBlogs(false);
+              setSkills(false);
+              setContact(false);
+              setHome(false);
+            }}
+            href={"/login"}
+          >
+            {" "}
+            <button className='hover:text-orange-600 h-10 '>Login</button>
+          </Link>
+          <Link
+            onClick={() => {
+              setAbout(false);
+              setBlogs(false);
+              setSkills(false);
+              setContact(false);
+              setHome(false);
+            }}
+            href={"/register"}
+          >
+            <button className='bg-orange-600 text-black hover:bg-orange-500 active:bg-orange-700 rounded-lg h-10 px-3 '>
+              Register
+            </button>
+          </Link>
         </div>
       </div>
     </>
