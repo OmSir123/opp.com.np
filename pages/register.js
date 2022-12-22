@@ -8,7 +8,7 @@ const register = () => {
       <Head>
         <title>Login</title>
       </Head>
-      <div className='form bg-gradient-to-r from-stone-900 to-stone-900 md:w-[35%] p-5 md:h-[80%]  rounded-xl md:mx-auto'>
+      <div className='form bg-gradient-to-r from-stone-900 to-stone-900 md:w-[35%] p-5 md:h-[80%] h-full  rounded-xl md:mx-auto'>
         <h1 className='text-3xl font-bold font-sans text-center'>
           Register Here
         </h1>
