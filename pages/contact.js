@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Head from "next/head";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+
 import { getDatabase, ref, set } from "firebase/database";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ReCAPTCHA from "react-google-recaptcha";
-import firebaseConfig from "./firebase";
+import firebaseConfig from "./api/firebase";
 
 const contact = () => {
+  const captcha = useRef(null);
+  const [keyrandom, setkeyrandom] = useState(0);
+
   const [fullName, setfullName] = useState("");
   const [Email, setEmail] = useState("");
   const [Message, setMessage] = useState("");
@@ -46,6 +49,7 @@ const contact = () => {
         progress: undefined,
         theme: "light",
       });
+      captcha.current.reset();
     }
   };
   function onChange() {
@@ -138,7 +142,8 @@ const contact = () => {
             rows='6'
           ></textarea>
           <ReCAPTCHA
-            
+            ref={captcha}
+            theme='dark'
             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
             onChange={onChange}
           />

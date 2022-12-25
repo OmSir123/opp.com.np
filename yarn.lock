@@ -2291,6 +2291,11 @@
   "resolved" "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   "version" "5.1.1"
 
+"random-key-generator@^1.2.3":
+  "integrity" "sha512-l+YVnXO+gSgno/J1VfiapQRRzMG4ChH//9zKLcQRa1LD7ApEGOevR4N/k4RTljjx0/W0OMC0TN0dHETFuFvPYg=="
+  "resolved" "https://registry.npmjs.org/random-key-generator/-/random-key-generator-1.2.3.tgz"
+  "version" "1.2.3"
+
 "react-async-script@^1.1.1":
   "integrity" "sha512-bCpkbm9JiAuMGhkqoAiC0lLkb40DJ0HOEJIku+9JDjxX3Rcs+ztEOG13wbrOskt3n2DTrjshhaQ/iay+SnGg5Q=="
   "resolved" "https://registry.npmjs.org/react-async-script/-/react-async-script-1.2.0.tgz"
