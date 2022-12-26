@@ -14,7 +14,7 @@ const about = () => {
           <p className='text-lg font-serif'>
             Hello! My name is{" "}
             <span className='text-orange-600 font-bold'>Om Prasad Poudel</span>{" "}
-            and welcome to my "About Me" page.
+            and welcome to my About Me page.
           </p>
           <p className='font-mono text-lg font-semibold text-red-600'>
             Background:
@@ -39,7 +39,7 @@ const about = () => {
           <img
             className='rounded-3xl h-[80%] border-2  border-orange-900 p-1'
             src='https://i.ibb.co/RDhzYhj/oppo.jpg'
-            alt=''
+            alt='Image'
           />
         </div>
       </div>

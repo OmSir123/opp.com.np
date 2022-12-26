@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ReCAPTCHA from "react-google-recaptcha";
 import firebaseConfig from "./api/firebase";
 
-const contact = () => {
+const Contact = () => {
   const captcha = useRef(null);
   const [keyrandom, setkeyrandom] = useState(0);
 
@@ -66,8 +66,8 @@ const contact = () => {
         <h1 className='text-2xl font-serif font-bold'>Contact Us:</h1>
         <p className='md:text-lg'>
           We value your feedback and are always here to help. If you have any
-          questions, comments, or concerns, please don't hesitate to reach out
-          to us.
+          questions, comments, or concerns, please dont hesitate to reach out to
+          us.
         </p>
         <h1 className='text-xl font-semibold font-serif'>
           Contact Information:
@@ -162,4 +162,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;
