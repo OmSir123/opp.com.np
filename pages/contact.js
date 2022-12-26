@@ -10,7 +10,6 @@ import firebaseConfig from "./api/firebase";
 
 const Contact = () => {
   const captcha = useRef(null);
-  const [keyrandom, setkeyrandom] = useState(0);
 
   const [fullName, setfullName] = useState("");
   const [Email, setEmail] = useState("");

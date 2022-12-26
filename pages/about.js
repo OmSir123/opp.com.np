@@ -6,7 +6,7 @@ const about = () => {
       <Head>
         <title>About Us</title>
       </Head>
-      <div className='text-white text-xl main justify-around h-[100vh] md:flex bg-gradient-to-r from-black to-stone-900'>
+      <div className='text-white  text-xl main justify-around h-[100vh] md:flex bg-gradient-to-r from-black to-stone-900'>
         <div className='myinfo md:mt-14  md:w-[60%]  space-y-6 px-5'>
           <p className='font-mono text-lg font-semibold text-red-600'>
             Introduction:
