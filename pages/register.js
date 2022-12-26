@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import ReCAPTCHA from "react-google-recaptcha";
 
-const register = () => {
+const Register = () => {
   const [Captcha, setCaptcha] = useState(false);
   const captcha = useRef(null);
   const onChange = () => {
@@ -62,4 +62,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;
