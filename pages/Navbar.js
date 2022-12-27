@@ -7,14 +7,33 @@ const Navbar = () => {
   const [Blogs, setBlogs] = useState(false);
   const [Skills, setSkills] = useState(false);
   const [Contact, setContact] = useState(false);
+  const [navClicked, setnavClicked] = useState(false);
 
   return (
     <>
-      <div className='nav flex z-40 overflow-x-hidden py-4 sticky top-0 font-serif text-sm md:text-base  md:font-medium bg-black text-white justify-around'>
-        <div className='logo hidden md:block'>
-          <img className='md:h-12' src='Logo.png' alt='' />
+      <div className='nav sm:flex z-40 text-center overflow-x-hidden py-4 sticky top-0 font-serif  sm:text-base  font-medium bg-black text-white justify-around'>
+        <div className='logo flex sm:block justify-around '>
+          <img className='sm:h-12 h-8' src='Logo.png' alt='' />
+          <div className=' sm:hidden text-white text-end '>
+            <button
+              onClick={() => {
+                if (navClicked == false) {
+                  setnavClicked(true);
+                } else {
+                  setnavClicked(false);
+                }
+              }}
+              className='   text-3xl'
+            >
+              {navClicked ? "X" : "☱"}
+            </button>
+          </div>
         </div>
-        <ul className='flex space-x-8  sm:space-x-14 p-2 md:mr-10 '>
+        <ul
+          className={`sm:flex space-x-8 ${
+            navClicked ? "" : "hidden"
+          }   space-y-10 sm:space-y-0  sm:space-x-14 p-2 sm:mr-10 `}
+        >
           <li>
             <Link
               onClick={() => {
@@ -23,8 +42,9 @@ const Navbar = () => {
                 setSkills(false);
                 setContact(false);
                 setHome(true);
+                setnavClicked(false);
               }}
-              className={`hover:text-orange-600 py-2 ${
+              className={`hover:text-orange-600 ml-5 sm:ml-0 ${
                 Home
                   ? "text-orange-600 border-b-2 border-orange-600"
                   : "text-white"
@@ -42,6 +62,7 @@ const Navbar = () => {
                 setSkills(false);
                 setContact(false);
                 setHome(false);
+                setnavClicked(false);
               }}
               className={`hover:text-orange-600 py-2 ${
                 About
@@ -61,6 +82,7 @@ const Navbar = () => {
                 setSkills(false);
                 setContact(false);
                 setHome(false);
+                setnavClicked(false);
               }}
               className={`hover:text-orange-600 py-2 ${
                 Blogs
@@ -80,6 +102,7 @@ const Navbar = () => {
                 setSkills(true);
                 setContact(false);
                 setHome(false);
+                setnavClicked(false);
               }}
               className={`hover:text-orange-600 py-2 ${
                 Skills
@@ -99,6 +122,7 @@ const Navbar = () => {
                 setSkills(false);
                 setContact(true);
                 setHome(false);
+                setnavClicked(false);
               }}
               className={`hover:text-orange-600 py-2 ${
                 Contact
@@ -111,7 +135,12 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <div className='buttons  space-x-5 hidden md:flex'>
+        <div
+          className={`buttons ${
+            navClicked ? "" : "hidden"
+          } mt-5 sm:mt-0  sm:flex space-y-10 sm:space-y-0 pl-5  sm:space-x-5  sm:flex-row`}
+        >
+          <h1 className='hidden'>test</h1>{" "}
           <Link
             onClick={() => {
               setAbout(false);
@@ -119,12 +148,14 @@ const Navbar = () => {
               setSkills(false);
               setContact(false);
               setHome(false);
+              setnavClicked(false);
             }}
             href={"/login"}
           >
             {" "}
             <button className='hover:text-orange-600 h-10 '>Login</button>
           </Link>
+          <br />
           <Link
             onClick={() => {
               setAbout(false);
@@ -132,6 +163,7 @@ const Navbar = () => {
               setSkills(false);
               setContact(false);
               setHome(false);
+              setnavClicked(false);
             }}
             href={"/register"}
           >

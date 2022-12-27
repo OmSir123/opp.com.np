@@ -4,7 +4,8 @@ import Link from "next/link";
 import firebaseConfig from "./api/firebase";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
@@ -15,12 +16,30 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         // ..c
-        console.log("login sucess");
+        toast.success("Login Sucess", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage);
+        toast.error(errorMessage, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
   };
   return (
@@ -28,6 +47,7 @@ const Login = () => {
       <Head>
         <title>Login</title>
       </Head>
+      <ToastContainer className='font-semibold font-mono ' />
       <div className='form bg-gradient-to-r from-stone-900 to-stone-900 md:w-[35%] py-10 px-5 h-[100vh] md:h-auto   rounded-xl md:mx-auto'>
         <h1 className='text-3xl font-bold font-sans text-center'>Login Here</h1>
         <div className='inputs space-y-10'>
