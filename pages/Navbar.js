@@ -111,7 +111,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <div className='buttons flex space-x-5'>
+        <div className='buttons  space-x-5 hidden md:flex'>
           <Link
             onClick={() => {
               setAbout(false);

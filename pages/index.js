@@ -10,19 +10,19 @@ import {
 } from "react-icons/bs";
 const index = () => {
   return (
-    <div className='bg-gradient-to-r  overflow-x-hidden md:h-full from-black to-stone-900'>
+    <div className='bg-gradient-to-r  overflow-x-hidden md:h-full h-[100vh] from-black to-stone-900'>
       <Head>
         <title>Home</title>
       </Head>
 
       <div className='flex text-white text-center space-x-14 justify-evenly py-10 '>
         <div className='message my-10 flex flex-col '>
-          <div className='letter space-y-6'>
+          <div className='letter space-y-8'>
             <h1 className='text-3xl font-medium tracking-widest font-serif '>
               Hi My Name Is,
             </h1>
             <br />
-            <h1 className='name text-5xl font-extrabold  text-orange-600'>
+            <h1 className='name text-5xl  font-extrabold  text-orange-600'>
               Om Prasad Poudel,
             </h1>
             <br />

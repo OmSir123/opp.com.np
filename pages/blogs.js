@@ -1,6 +1,13 @@
 import React from "react";
 import Head from "next/head";
-const blogs = () => {
+import firebaseConfig from "./api/firebase";
+import { getDatabase, ref, child, get } from "firebase/database";
+import { initializeApp } from "firebase/app";
+const Blogs = () => {
+  const app = initializeApp(firebaseConfig);
+
+  const database = getDatabase(app);
+
   return (
     <div className='bg-gradient-to-r from-black to-stone-900'>
       <Head>
@@ -18,13 +25,13 @@ const blogs = () => {
                 />
               </a>
               <div className='mt-4'>
-              <h2 className='text-gray-200 title-font text-lg font-medium'>
+                <h2 className='text-gray-200 title-font text-lg font-medium'>
                   Title
                 </h2>
                 <h3 className='text-white text-xs tracking-widest title-font mb-1'>
                   Discription
                 </h3>
-               
+
                 <p className='mt-1'>Date Here</p>
               </div>
             </div>
@@ -35,4 +42,4 @@ const blogs = () => {
   );
 };
 
-export default blogs;
+export default Blogs;

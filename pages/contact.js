@@ -33,22 +33,39 @@ const Contact = () => {
         theme: "light",
       });
     } else {
-      set(ref(database, "Contact/" + fullName), {
-        name: fullname,
-        email: email,
-        message: message,
-      });
-      toast.success("Message sent Sucessfully", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      captcha.current.reset();
+      if (Captcha == true) {
+        try {
+          set(ref(database, "Contact/" + fullName), {
+            name: fullname,
+            email: email,
+            message: message,
+          });
+          toast.success("Message sent Sucessfully", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          captcha.current.reset();
+
+          setCaptcha(false);
+        } catch (error) {
+          toast.error("Something Went Wrong", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      }
     }
   };
   function onChange() {
