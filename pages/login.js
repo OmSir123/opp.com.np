@@ -6,16 +6,19 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 const Login = () => {
+  const router = useRouter();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, Email, Password)
       .then((userCredential) => {
         // Signed in
-        // ..c
+
         toast.success("Login Sucess", {
           position: "top-center",
           autoClose: 5000,
@@ -26,6 +29,9 @@ const Login = () => {
           progress: undefined,
           theme: "light",
         });
+        setTimeout(() => {
+          router.push("/admin");
+        }, 1000);
       })
       .catch((error) => {
         const errorCode = error.code;

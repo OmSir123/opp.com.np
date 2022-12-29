@@ -151,7 +151,7 @@ const Contact = () => {
             }}
             value={Message}
             placeholder='Enter Your Message'
-            className='bg-transparent border-2 px-3 rounded-md'
+            className='bg-transparent md:w-[70%] border-2 px-3 rounded-md'
             name=''
             id=''
             cols='55'
