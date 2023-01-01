@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import {
   BsFacebook,
@@ -8,7 +8,11 @@ import {
   BsTelegram,
   BsInstagram,
 } from "react-icons/bs";
+import auth from "./api/auth";
+
 const index = () => {
+
+
   return (
     <div className='bg-gradient-to-r  overflow-x-hidden md:h-full h-[100vh] from-black to-stone-900'>
       <Head>

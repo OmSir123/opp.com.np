@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
-
-const Navbar = () => {
+import auth from "./api/auth";
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const Navbar = ({ isLoggedIn }) => {
+  const router = useRouter();
   const [Home, setHome] = useState(false);
   const [About, setAbout] = useState(false);
   const [Blogs, setBlogs] = useState(false);
@@ -9,8 +13,30 @@ const Navbar = () => {
   const [Contact, setContact] = useState(false);
   const [navClicked, setnavClicked] = useState(false);
 
+  let handleSignout = () => {
+    auth
+      .signOut()
+      .then(() => {
+        toast.success("Signout Success", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        router.push("/");
+      })
+      .catch(() => {
+        console.log("SomeThing wen wrong");
+      });
+  };
+
   return (
     <>
+      <ToastContainer />
       <div className='nav sm:flex z-40 text-center overflow-x-hidden py-4 sticky top-0 font-serif  sm:text-base  font-medium bg-black text-white justify-around'>
         <div className='logo flex sm:block justify-around '>
           <img className='sm:h-12 h-8' src='Logo.png' alt='' />
@@ -54,6 +80,7 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+
           <li>
             <Link
               onClick={() => {
@@ -142,6 +169,7 @@ const Navbar = () => {
         >
           <h1 className='hidden'>test</h1>{" "}
           <Link
+            className={`${isLoggedIn ? "hidden" : ""}`}
             onClick={() => {
               setAbout(false);
               setBlogs(false);
@@ -157,6 +185,7 @@ const Navbar = () => {
           </Link>
           <br />
           <Link
+            className={`${isLoggedIn ? "hidden" : ""}`}
             onClick={() => {
               setAbout(false);
               setBlogs(false);
@@ -171,6 +200,14 @@ const Navbar = () => {
               Register
             </button>
           </Link>
+          <button
+            onClick={() => {
+              handleSignout();
+            }}
+            className={isLoggedIn ? "" : "hidden"}
+          >
+            Signout
+          </button>
         </div>
       </div>
     </>

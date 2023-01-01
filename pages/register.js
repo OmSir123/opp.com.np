@@ -3,14 +3,12 @@ import Head from "next/head";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import ReCAPTCHA from "react-google-recaptcha";
-import firebaseConfig from "./api/firebase";
-import { initializeApp } from "firebase/app";
+
 import { ToastContainer, toast } from "react-toastify";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "./api/auth";
 
 const Register = () => {
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
