@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  setPersistence,
+  browserLocalPersistence,
+} from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
-
 import auth from "./api/auth";
 const Login = () => {
   const router = useRouter();
@@ -13,41 +16,49 @@ const Login = () => {
   const [Password, setPassword] = useState("");
 
   const handleLogin = () => {
-    signInWithEmailAndPassword(auth, Email, Password)
-      .then((userCredential) => {
-        toast.success("Login Sucess", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-        if (userCredential.user.uid == process.env.NEXT_PUBLIC_FB_ADMINUID) {
-          setTimeout(() => {
-            router.push("/admin");
-          }, 1000);
-        } else {
-          setTimeout(() => {
-            router.push("/user");
-          }, 1000);
-        }
+    setPersistence(auth, browserLocalPersistence)
+      .then(() => {
+        signInWithEmailAndPassword(auth, Email, Password)
+          .then((userCredential) => {
+            toast.success("Login Sucess", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+            if (
+              userCredential.user.uid == process.env.NEXT_PUBLIC_FB_ADMINUID
+            ) {
+              setTimeout(() => {
+                router.push("/admin");
+              }, 1000);
+            } else {
+              setTimeout(() => {
+                router.push("/user");
+              }, 1000);
+            }
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast.error(errorMessage, {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          });
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        toast.error(errorMessage, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+      .catch((err) => {
+        console.log(err);
       });
   };
   return (
