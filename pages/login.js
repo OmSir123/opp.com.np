@@ -15,7 +15,7 @@ const Login = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = ({ isLoggedin }) => {
     setPersistence(auth, browserLocalPersistence)
       .then(() => {
         signInWithEmailAndPassword(auth, Email, Password)
@@ -118,3 +118,4 @@ const Login = () => {
 };
 
 export default Login;
+
